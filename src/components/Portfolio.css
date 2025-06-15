@@ -1,0 +1,74 @@
+/* Portfolio Section Styles */
+.portfolio-section {
+  text-align: center;
+}
+
+.portfolio-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.filter-buttons {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.filter-buttons button {
+  background-color: #eee;
+  color: #333;
+  border: 1px solid #ddd;
+}
+.filter-buttons button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+.filter-buttons button:hover {
+  background-color: #ddd;
+  color: #222;
+}
+.filter-buttons button.active:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.portfolio-item {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-5px);
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 250px; /* Fixed height for consistency */
+  object-fit: cover; /* Ensures images cover the area without distortion */
+  display: block;
+}
+
+.portfolio-item h3 {
+  font-size: 1.2rem;
+  margin: 1rem 0.75rem 0.5rem;
+  color: #222;
+}
+
+.portfolio-item p {
+  font-size: 0.9rem;
+  color: #666;
+  padding: 0 0.75rem 1rem;
+}
