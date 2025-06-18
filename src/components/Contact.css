@@ -35,4 +35,30 @@
 .contact-form button {
   width: auto;
   align-self: flex-start;
+  padding: 0.8em 1.5em; /* Slightly larger padding for better tap target */
+}
+
+/* Responsive adjustments for Contact */
+@media (max-width: 768px) {
+  .contact-section h2 {
+    font-size: 2rem;
+  }
+  .contact-form {
+    padding: 0 1rem; /* Add horizontal padding to the form */
+  }
+  .contact-info p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section h2 {
+    font-size: 1.8rem;
+  }
+  .contact-form {
+    padding: 0 0.5rem; /* More padding on very small screens */
+  }
+  .contact-info {
+    gap: 0.75rem; /* Smaller gap */
+  }
 }

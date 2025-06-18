@@ -1,84 +1,97 @@
 /* Basic Reset & Global Styles */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
 
-  color-scheme: light dark;
-  color: #333; /* Dark text for light background */
-  background-color: #f5f5f5; /* Light grey background */
+    color-scheme: light dark;
+    color: #333; /* Dark text for light background */
+    background-color: #f5f5f5; /* Light grey background */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  box-sizing: border-box;
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 #root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 main {
-  flex-grow: 1; /* Makes main content take up available space */
-  padding: 2rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
+    flex-grow: 1;
+    padding: 2rem 1rem; /* Default padding for most screens */
+    max-width: 1200px; /* Maximum width for content */
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+
+    /* --- NEW STYLE TO PREVENT CONTENT OVERLAP --- */
+    padding-top: 65px; /* Adjust this value to be slightly more than your navbar's height */
+    /* --- END NEW STYLE --- */
 }
 
 section {
-  margin-bottom: 3rem;
-  padding: 1.5rem;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: #222;
-  margin-top: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #222;
+    margin-top: 0;
+    line-height: 1.2; /* Better readability for headings */
 }
 
 a {
-  font-weight: 500;
-  color: #007bff;
-  text-decoration: none;
+    font-weight: 500;
+    color: #007bff;
+    text-decoration: none;
 }
 a:hover {
-  color: #0056b3;
+    color: #0056b3;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  transition: border-color 0.25s, background-color 0.25s;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition:
+        border-color 0.25s,
+        background-color 0.25s;
 }
 button:hover {
-  border-color: #0056b3;
-  background-color: #0056b3;
+    border-color: #0056b3;
+    background-color: #0056b3;
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+    outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* Basic form styling (if you want these globally applied, otherwise move to Contact.css) */
+/* Basic form styling (kept global as they are general input styles) */
 form {
     display: flex;
     flex-direction: column;
@@ -93,6 +106,7 @@ textarea {
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1rem;
+    box-sizing: border-box; /* Crucial for full-width inputs */
 }
 
 textarea {
@@ -106,12 +120,43 @@ label {
     display: block;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for main content and sections */
+@media (max-width: 768px) {
+    main {
+        padding: 1rem 0.75rem; /* Slightly less padding on smaller screens */
+    }
+    section {
+        padding: 1rem; /* Adjust section padding */
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 1rem 0.5rem; /* Even less padding on very small screens */
+    }
+    h1 {
+        font-size: 2.2rem; /* Scale down large headings */
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    h3 {
+        font-size: 1.4rem;
+    }
+}
 @media (max-width: 768px) {
   main {
-    padding: 1rem;
+    padding: 1rem 0.75rem; /* Existing padding, ensure it also includes the new top padding */
+    padding-top: 65px; /* Apply padding-top here too for smaller screens */
   }
   section {
     padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 1rem 0.5rem; /* Existing padding, ensure it also includes the new top padding */
+    padding-top: 65px; /* Apply padding-top here too for very small screens */
   }
 }

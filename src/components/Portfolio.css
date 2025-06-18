@@ -1,97 +1,187 @@
 /* Portfolio Section Styles */
 .portfolio-section {
-  text-align: center;
+    text-align: center;
 }
 
 .portfolio-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .filter-buttons {
-  margin-bottom: 2rem;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.8rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow buttons to wrap to next line */
+    gap: 0.8rem;
 }
 
 .filter-buttons button {
-  background-color: #eee;
-  color: #333;
-  border: 1px solid #ddd;
+    background-color: #eee;
+    color: #333;
+    border: 1px solid #ddd;
+    flex-grow: 1; /* Allow buttons to grow to fill space */
+    max-width: 150px; /* Max width for individual buttons */
 }
 .filter-buttons button.active {
-  background-color: #007bff;
-  color: white;
-  border-color: #007bff;
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
 }
 .filter-buttons button:hover {
-  background-color: #ddd;
-  color: #222;
+    background-color: #ddd;
+    color: #222;
 }
 .filter-buttons button.active:hover {
-  background-color: #0056b3;
-  color: white;
+    background-color: #0056b3;
+    color: white;
 }
 
-
 .portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(280px, 1fr)
+    ); /* Auto-fit columns, min 280px */
+    gap: 1.5rem;
 }
 
 .portfolio-item {
-  background-color: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    display: flex; /* Use flex for content within card */
+    flex-direction: column; /* Stack image, title, description */
 }
 
 .portfolio-item:hover {
-  transform: translateY(-5px);
+    transform: translateY(-5px);
 }
 
-.portfolio-item img {
-  width: 100%;
-  height: 250px; /* Fixed height for consistency */
-  object-fit: cover; /* Ensures images cover the area without distortion */
-  display: block;
+.portfolio-image-container {
+    cursor: pointer;
+    width: 100%;
+    height: 250px; /* Fixed height for consistency */
+    overflow: hidden; /* Hide overflow if image doesn't fit */
+}
+
+.portfolio-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    display: block;
 }
 
 .portfolio-item h3 {
-  font-size: 1.2rem;
-  margin: 1rem 0.75rem 0.5rem;
-  color: #222;
+    font-size: 1.2rem;
+    margin: 1rem 0.75rem 0.5rem;
+    color: #222;
 }
 
 .portfolio-item p {
-  font-size: 0.9rem;
-  color: #666;
-  padding: 0 0.75rem 1rem;
-}
-.portfolio-image-container {
-  cursor: pointer; /* Change cursor to pointer on hover */
+    font-size: 0.9rem;
+    color: #666;
+    padding: 0 0.75rem 1rem;
+    flex-grow: 1; /* Allow description to take available space */
 }
 
+/* Modal for zoomed image (already responsive with max-width/height) */
 .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9); /* Dark background */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000; /* Ensure it's on top */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    cursor: zoom-out; /* Indicate it's clickable to close */
 }
 
 .modal-image {
-  max-width: 90%; /* Ensure image fits within the screen */
-  max-height: 90%;
-  object-fit: contain; /* Prevents image from stretching */
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
 }
 
+/* Responsive adjustments for Portfolio */
+@media (max-width: 768px) {
+    .portfolio-section h2 {
+        font-size: 2rem;
+    }
+    .portfolio-grid {
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(250px, 1fr)
+        ); /* Smaller min-width on tablets */
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-section h2 {
+        font-size: 1.8rem;
+    }
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* Stack items vertically on very small screens */
+    }
+    .filter-buttons button {
+        max-width: 100%; /* Buttons take full width */
+    }
+}
+
+/* ... (your existing Portfolio.css styles) ... */
+
+/* Styles for the Loading Spinner */
+.portfolio-image-container {
+  /* Ensure container is relative for absolute positioning of spinner */
+  position: relative;
+  display: flex; /* Use flexbox to center content */
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* Light background for loading state */
+  color: #888; /* Color for spinner/text */
+  min-height: 250px; /* Ensure space for spinner even if image is hidden */
+  overflow: hidden; /* Hide overflow if image doesn't fit */
+  cursor: pointer;
+}
+
+.loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem; /* Adjust spinner size */
+  color: #007bff; /* Spinner color */
+  z-index: 1; /* Ensure spinner is above image if image briefly shows */
+}
+
+.loading-error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #dc3545; /* Error text color */
+  font-size: 0.9rem;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.portfolio-image-container img {
+  /* Ensure the image fills the container when loaded */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block; /* Ensure it behaves like a block element */
+  transition: opacity 0.3s ease-in-out; /* Smooth transition when image appears */
+}
+
+/* Optional: Hide image while loading, show when loaded */
+/* This is handled by the inline style `display: loadingStates[...] ? 'none' : 'block'` */

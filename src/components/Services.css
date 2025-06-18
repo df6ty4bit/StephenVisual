@@ -34,3 +34,29 @@
   color: #555;
   line-height: 1.6;
 }
+
+/* Responsive adjustments for Services */
+@media (max-width: 768px) {
+  .services-section h2 {
+    font-size: 2rem;
+  }
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust min-width */
+    gap: 1.5rem;
+  }
+  .service-card {
+    padding: 1rem; /* Smaller padding */
+  }
+  .service-card h3 {
+    font-size: 1.3rem; /* Smaller font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .services-section h2 {
+    font-size: 1.8rem;
+  }
+  .services-grid {
+    grid-template-columns: 1fr; /* Stack vertically on very small screens */
+  }
+}

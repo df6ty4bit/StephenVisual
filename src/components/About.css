@@ -1,46 +1,77 @@
 /* About Section Styles */
 .about-section {
-  text-align: center;
+    text-align: center;
 }
 
 .about-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .team-members {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap; /* Allow members to wrap to the next line */
+    justify-content: center;
+    gap: 2rem; /* Space between members */
+    margin-top: 2rem;
 }
 
 .team-member {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  text-align: center;
-  width: 250px; /* Fixed width for team cards */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    width: 250px; /* Fixed width for team cards */
+    max-width: 100%; /* Ensure it doesn't overflow on small screens */
+    box-sizing: border-box; /* Include padding in width */
+    flex-shrink: 0; /* Prevent shrinking below content if space is tight */
 }
 
 .team-member img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-  border: 3px solid #007bff;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid #007bff;
 }
 
 .team-member h3 {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-  color: #222;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #222;
 }
 
 .team-member p {
-  color: #666;
-  font-size: 0.95rem;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Responsive adjustments for About */
+@media (max-width: 768px) {
+    .about-section h2 {
+        font-size: 2rem;
+    }
+    .team-members {
+        gap: 1.5rem; /* Reduce gap on smaller screens */
+    }
+    .team-member {
+        width: 220px; /* Slightly smaller card width */
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section h2 {
+        font-size: 1.8rem;
+    }
+    .team-member {
+        width: 100%; /* Full width on very small screens, stack vertically */
+        padding: 1rem;
+    }
+    .team-member img {
+        width: 100px; /* Smaller image */
+        height: 100px;
+    }
 }
