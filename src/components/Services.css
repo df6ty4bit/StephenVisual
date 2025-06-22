@@ -1,62 +1,104 @@
 /* Services Section Styles */
+.services-section {
+    text-align: center;
+    padding: 4rem 2rem; /* Increased padding to give more space for the background */
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        /* Semi-transparent dark overlay */
+            url("../assets/backgrounds/services-bg.png") no-repeat center center; /* Your background image */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-attachment: fixed; /* (Optional) Creates a parallax scrolling effect */
+    color: white; /* Change text color to white for better contrast on dark background */
+    border-radius: 8px; /* Apply border-radius for consistency */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Keep shadow for definition */
+    min-height: 500px; /* Ensure a minimum height for the section to show the background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+}
+
 .services-section h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: white; /* Ensure heading is white */
+    z-index: 1; /* Ensure text is above the background layers */
 }
 
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    /*border-radius: 15px;*/
+    width: 100%; /* Ensure grid takes full width available */
+    max-width: 1000px; /* Limit grid width to prevent stretching on very large screens */
+    margin: 0 auto; /* Center the grid */
+    z-index: 1; /* Ensure cards are above background layers */
 }
 
 .service-card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  text-align: center;
-  transition: transform 0.2s ease-in-out;
+    background-color: rgba(
+        255,
+        255,
+        255,
+        0.9
+    ); /* Semi-transparent white background for cards */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for cards on background */
+    padding: 1.5rem;
+    text-align: center;
+    transition:
+        transform 0.2s ease-in-out,
+        background-color 0.2s;
+    color: #333; /* Ensure text inside card is dark */
 }
 
 .service-card:hover {
-  transform: translateY(-5px);
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 1); /* Fully opaque on hover */
 }
 
 .service-card h3 {
-  font-size: 1.5rem;
-  color: #007bff;
-  margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #007bff; /* Keep original color or adjust for contrast */
+    margin-bottom: 1rem;
 }
 
 .service-card p {
-  color: #555;
-  line-height: 1.6;
+    color: #555;
+    line-height: 1.6;
 }
 
 /* Responsive adjustments for Services */
 @media (max-width: 768px) {
-  .services-section h2 {
-    font-size: 2rem;
-  }
-  .services-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust min-width */
-    gap: 1.5rem;
-  }
-  .service-card {
-    padding: 1rem; /* Smaller padding */
-  }
-  .service-card h3 {
-    font-size: 1.3rem; /* Smaller font size */
-  }
+    .services-section {
+        padding: 3rem 1.5rem; /* Adjust padding for tablets */
+        min-height: 400px; /* Smaller min-height */
+    }
+    .services-section h2 {
+        font-size: 2rem;
+    }
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    .service-card {
+        padding: 1rem;
+    }
+    .service-card h3 {
+        font-size: 1.3rem;
+    }
 }
 
 @media (max-width: 480px) {
-  .services-section h2 {
-    font-size: 1.8rem;
-  }
-  .services-grid {
-    grid-template-columns: 1fr; /* Stack vertically on very small screens */
-  }
+    .services-section {
+        padding: 2rem 1rem; /* Adjust padding for mobile */
+        min-height: 300px; /* Even smaller min-height */
+    }
+    .services-section h2 {
+        font-size: 1.8rem;
+    }
+    .services-grid {
+        grid-template-columns: 1fr; /* Stack vertically on very small screens */
+    }
 }

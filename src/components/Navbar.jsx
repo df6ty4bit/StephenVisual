@@ -1,30 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // Import useEffect
 import { Link } from 'react-router-dom';
-import './Navbar.css'; // <--- UPDATED IMPORT
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import logoPlaceholder from '../assets/logo.png'; // Assuming your logo is here
+import './Navbar.css';
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const Navbar = ({ isMenuOpen, toggleMenu, closeMenu }) => {
+  const [scrolled, setScrolled] = useState(false); // New state to track scroll
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  // Effect to handle scroll event
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if user has scrolled past 50px (you can adjust this threshold)
+      const offset = window.scrollY;
+      if (offset > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    // Add event listener when component mounts
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up event listener when component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}> {/* Apply 'scrolled' class conditionally */}
       <div className="navbar-brand">
-        <Link to="/">StephenVisual</Link>
+        <Link to="/" onClick={closeMenu}>
+          <img src={logoPlaceholder} alt="StephenVisual Logo" />
+          StephenVisual
+        </Link>
       </div>
       <div className="menu-icon" onClick={toggleMenu}>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
+        <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
       </div>
-      <ul className={`navbar-links ${isOpen ? 'active' : ''}`}>
-        <li><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>
-        <li><Link to="/portfolio" onClick={() => setIsOpen(false)}>Portfolio</Link></li>
-        <li><Link to="/services" onClick={() => setIsOpen(false)}>Services</Link></li>
-        <li><Link to="/about" onClick={() => setIsOpen(false)}>About Us</Link></li>
-        <li><Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
+      <ul className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
+        <li><Link to="/" onClick={closeMenu}>Home</Link></li>
+        <li><Link to="/portfolio" onClick={closeMenu}>Portfolio</Link></li>
+        <li><Link to="/services" onClick={closeMenu}>Services</Link></li>
+        <li><Link to="/about" onClick={closeMenu}>About Us</Link></li>
+        <li><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
       </ul>
     </nav>
   );
