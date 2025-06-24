@@ -4,9 +4,35 @@
     line-height: 1.5;
     font-weight: 400;
 
-    color-scheme: light dark;
-    color: #333; /* Dark text for light background */
-    background-color: #f5f5f5; /* Light grey background */
+    /* Light Mode Variables (Default) */
+    --primary-color: #007bff;
+    --primary-hover-color: #0056b3;
+    --text-color: #333;
+    --heading-color: #222;
+    --background-color: #f5f5f5;
+    --section-bg: #ffffff;
+    --section-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --card-bg: #ffffff;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --card-border: #ddd;
+    --link-color: #007bff;
+    --link-hover-color: #0056b3;
+    --button-bg: #007bff;
+    --button-text: white;
+    --button-hover-bg: #0056b3;
+    --input-border: #ddd;
+    --input-bg: white;
+    --input-text: #333;
+    --filter-button-bg: #eee;
+    --filter-button-text: #333;
+    --filter-button-hover-bg: #ddd;
+    --filter-button-active-bg: #007bff;
+    --filter-button-active-text: white;
+    --portfolio-spinner-color: #007bff;
+    --portfolio-loading-bg: #f0f0f0;
+    --portfolio-loading-text: #888;
+    --portfolio-error-text: #dc3545;
+    --modal-overlay-bg: rgba(0, 0, 0, 0.9);
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -14,11 +40,48 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Dark Mode Variables */
+body.dark {
+    --primary-color: #61dafb; /* React blue for accents */
+    --primary-hover-color: #21a1f1;
+    --text-color: #e0e0e0; /* Lighter text for dark background */
+    --heading-color: #f0f0f0; /* Lighter headings */
+    --background-color: #1a1a1a; /* Dark background */
+    --section-bg: #2d2d2d; /* Slightly lighter dark for sections */
+    --section-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    --card-bg: #3c3c3c;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    --card-border: #4a4a4a;
+    --link-color: #61dafb;
+    --link-hover-color: #21a1f1;
+    --button-bg: #61dafb;
+    --button-text: #1a1a1a;
+    --button-hover-bg: #21a1f1;
+    --input-border: #555;
+    --input-bg: #3c3c3c;
+    --input-text: #e0e0e0;
+    --filter-button-bg: #4a4a4a;
+    --filter-button-text: #e0e0e0;
+    --filter-button-hover-bg: #5a5a5a;
+    --filter-button-active-bg: #61dafb;
+    --filter-button-active-text: #1a1a1a;
+    --portfolio-spinner-color: #61dafb;
+    --portfolio-loading-bg: #333;
+    --portfolio-loading-text: #aaa;
+    --portfolio-error-text: #ff6b6b;
+    --modal-overlay-bg: rgba(0, 0, 0, 0.95);
+}
+
 body {
     margin: 0;
     min-width: 320px;
     min-height: 100vh;
     box-sizing: border-box;
+    background-color: var(--background-color); /* Use variable */
+    color: var(--text-color); /* Use variable */
+    transition:
+        background-color 0.3s ease-in-out,
+        color 0.3s ease-in-out;
 }
 
 #root {
@@ -34,18 +97,18 @@ main {
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
-
-    /* --- NEW STYLE TO PREVENT CONTENT OVERLAP --- */
-    padding-top: 65px; /* Adjust this value to be slightly more than your navbar's height */
-    /* --- END NEW STYLE --- */
+    padding-top: 80px; /* Adjusted to accommodate fixed navbar height more reliably */
 }
 
 section {
     margin-bottom: 3rem;
     padding: 1.5rem;
-    background-color: white;
+    background-color: var(--section-bg); /* Use variable */
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--section-shadow); /* Use variable */
+    transition:
+        background-color 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out;
 }
 
 h1,
@@ -54,18 +117,20 @@ h3,
 h4,
 h5,
 h6 {
-    color: #222;
+    color: var(--heading-color); /* Use variable */
     margin-top: 0;
-    line-height: 1.2; /* Better readability for headings */
+    line-height: 1.2;
+    transition: color 0.3s ease-in-out;
 }
 
 a {
     font-weight: 500;
-    color: #007bff;
+    color: var(--link-color); /* Use variable */
     text-decoration: none;
+    transition: color 0.2s ease-in-out;
 }
 a:hover {
-    color: #0056b3;
+    color: var(--link-hover-color); /* Use variable */
 }
 
 button {
@@ -75,23 +140,24 @@ button {
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #007bff;
-    color: white;
+    background-color: var(--button-bg); /* Use variable */
+    color: var(--button-text); /* Use variable */
     cursor: pointer;
     transition:
         border-color 0.25s,
-        background-color 0.25s;
+        background-color 0.25s,
+        color 0.25s;
 }
 button:hover {
-    border-color: #0056b3;
-    background-color: #0056b3;
+    border-color: var(--button-hover-bg); /* Use variable */
+    background-color: var(--button-hover-bg); /* Use variable */
 }
 button:focus,
 button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
+    outline: 4px auto var(--link-color); /* Use variable */
 }
 
-/* Basic form styling (kept global as they are general input styles) */
+/* Basic form styling */
 form {
     display: flex;
     flex-direction: column;
@@ -103,10 +169,16 @@ input[type="email"],
 textarea {
     width: 100%;
     padding: 0.8rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--input-border); /* Use variable */
     border-radius: 4px;
     font-size: 1rem;
-    box-sizing: border-box; /* Crucial for full-width inputs */
+    box-sizing: border-box;
+    background-color: var(--input-bg); /* Use variable */
+    color: var(--input-text); /* Use variable */
+    transition:
+        border-color 0.3s ease-in-out,
+        background-color 0.3s ease-in-out,
+        color 0.3s ease-in-out;
 }
 
 textarea {
@@ -118,24 +190,28 @@ label {
     font-weight: bold;
     margin-bottom: 0.25rem;
     display: block;
+    color: var(--heading-color); /* Use variable */
+    transition: color 0.3s ease-in-out;
 }
 
 /* Responsive adjustments for main content and sections */
 @media (max-width: 768px) {
     main {
-        padding: 1rem 0.75rem; /* Slightly less padding on smaller screens */
+        padding: 1rem 0.75rem;
+        padding-top: 80px; /* Apply padding-top here too for smaller screens */
     }
     section {
-        padding: 1rem; /* Adjust section padding */
+        padding: 1rem;
     }
 }
 
 @media (max-width: 480px) {
     main {
-        padding: 1rem 0.5rem; /* Even less padding on very small screens */
+        padding: 1rem 0.5rem;
+        padding-top: 80px; /* Apply padding-top here too for very small screens */
     }
     h1 {
-        font-size: 2.2rem; /* Scale down large headings */
+        font-size: 2.2rem;
     }
     h2 {
         font-size: 1.8rem;
@@ -143,20 +219,4 @@ label {
     h3 {
         font-size: 1.4rem;
     }
-}
-@media (max-width: 768px) {
-  main {
-    padding: 1rem 0.75rem; /* Existing padding, ensure it also includes the new top padding */
-    padding-top: 65px; /* Apply padding-top here too for smaller screens */
-  }
-  section {
-    padding: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  main {
-    padding: 1rem 0.5rem; /* Existing padding, ensure it also includes the new top padding */
-    padding-top: 65px; /* Apply padding-top here too for very small screens */
-  }
 }

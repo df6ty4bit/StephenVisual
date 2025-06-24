@@ -1,5 +1,5 @@
-import React, { useState } from "react"; 
-import "./Contact.css"; // <--- UPDATED IMPORT
+import React, { useState } from "react";
+import "./Contact.css";
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -19,9 +19,6 @@ const Contact = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        // In a real application, you would send this data to a backend server
-        // or a service like Formspree.io or Netlify Forms.
-        // For now, let's just log it to the console.
         console.log("Form submitted:", formData);
         alert("Thank you for your message! We will get back to you soon.");
         setFormData({ name: "", email: "", subject: "", message: "" }); // Clear form

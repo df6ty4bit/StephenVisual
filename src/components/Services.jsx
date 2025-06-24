@@ -1,12 +1,12 @@
 import React from 'react';
-import './Services.css'; // <--- UPDATED IMPORT
+import './Services.css';
 
 const Services = () => {
   const services = [
     {
       title: 'Event Coverage',
       description: 'Comprehensive photography and videography for weddings, corporate events, birthdays, and more. We capture every significant moment.',
-      icon: '📸', // Use emoji or an actual icon library like FontAwesome later
+      icon: '📸',
     },
     {
       title: 'Professional Photo Editing',

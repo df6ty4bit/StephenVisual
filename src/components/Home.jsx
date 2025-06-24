@@ -20,8 +20,6 @@ const Home = () => {
         </p>
         <p>Let us help you bring your visual dreams to life.</p>
       </section>
-
-      {/* You can add more sections here, e.g., Featured Services, Testimonials preview */}
     </>
   );
 };

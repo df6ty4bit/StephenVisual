@@ -6,6 +6,7 @@
 .contact-section h2 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
+  color: var(--heading-color); /* Use variable */
 }
 
 .contact-info {
@@ -19,23 +20,46 @@
 .contact-info p {
   font-size: 1.1rem;
   margin: 0.5rem 0;
+  color: var(--text-color); /* Use variable */
+}
+
+.contact-info p strong {
+  color: var(--heading-color); /* Use variable for strong text within contact info */
 }
 
 .contact-form {
   max-width: 600px;
   margin: 2rem auto;
   text-align: left;
+  background-color: var(--section-bg); /* Use variable for form background */
+  border-radius: 8px;
+  box-shadow: var(--section-shadow); /* Use variable */
+  padding: 2rem;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.contact-form h3 {
+  color: var(--heading-color); /* Use variable */
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .contact-form label {
   margin-bottom: 0.5rem;
   font-weight: bold;
+  color: var(--text-color); /* Use variable */
 }
 
 .contact-form button {
   width: auto;
   align-self: flex-start;
-  padding: 0.8em 1.5em; /* Slightly larger padding for better tap target */
+  padding: 0.8em 1.5em;
+  background-color: var(--button-bg); /* Use variable */
+  color: var(--button-text); /* Use variable */
+}
+
+.contact-form button:hover {
+  background-color: var(--button-hover-bg); /* Use variable */
 }
 
 /* Responsive adjustments for Contact */
@@ -44,7 +68,7 @@
     font-size: 2rem;
   }
   .contact-form {
-    padding: 0 1rem; /* Add horizontal padding to the form */
+    padding: 1.5rem 1rem; /* Adjust padding for tablets */
   }
   .contact-info p {
     font-size: 1rem;
@@ -56,9 +80,9 @@
     font-size: 1.8rem;
   }
   .contact-form {
-    padding: 0 0.5rem; /* More padding on very small screens */
+    padding: 1rem 0.5rem; /* More padding on very small screens */
   }
   .contact-info {
-    gap: 0.75rem; /* Smaller gap */
+    gap: 0.75rem;
   }
 }

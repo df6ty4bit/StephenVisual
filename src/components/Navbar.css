@@ -1,32 +1,26 @@
 /* Navbar Styles */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #222; /* Default solid background */
-  color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-
-  /* --- NEW: Smooth transition for background color --- */
-  transition: background-color 0.3s ease-in-out;
-  /* --- END NEW --- */
+    display: flex;
+    justify-content: flex-start; /* Start elements from the left */
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--section-bg); /* Use variable */
+    color: var(--text-color); /* Use variable */
+    box-shadow: var(--section-shadow); /* Use variable */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    transition:
+        background-color 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out,
+        color 0.3s ease-in-out;
 }
 
-/* --- NEW: Styles for when scrolled --- */
 .navbar.scrolled {
-  background-color: rgba(34, 34, 34, 0.8); /* Semi-transparent background */
-  /* You can also adjust box-shadow for a lighter look if desired: */
-  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
+    background-color: var(--section-bg); /* Can be adjusted if you want a different look on scroll */
+    box-shadow: var(--section-shadow);
 }
-/* --- END NEW --- */
-
-/* ... rest of your Navbar.css code ... */
 
 .navbar-brand {
     display: flex;
@@ -35,55 +29,88 @@
 }
 
 .navbar-brand img {
-    height: 30px; /* Adjust the logo height as needed */
-    max-width: 100%; /* Ensure logo scales down if needed */
+    height: 30px;
+    max-width: 100%;
 }
 
 .navbar-brand a {
-    color: white;
+    color: var(--heading-color); /* Use variable */
     text-decoration: none;
     font-size: 1.8rem;
     font-weight: bold;
     letter-spacing: 1px;
+    transition: color 0.3s ease;
 }
 
+/* Navbar Links (Desktop Layout) */
 .navbar-links {
     list-style: none;
-    display: flex;
+    display: flex; /* Always flex on desktop */
+    flex-grow: 1; /* Allows it to take available space */
+    justify-content: center; /* Centers the links within the available space */
     gap: 2rem;
     margin: 0;
     padding: 0;
+    /* Hide on mobile, overridden by media query for desktop */
+    display: none; /* Hidden by default, shown by min-width media query */
 }
 
 .navbar-links li a {
-    color: white;
+    color: var(--text-color); /* Use variable */
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s ease-in-out;
 }
 
 .navbar-links li a:hover {
-    color: #00aaff; /* A brighter blue for hover */
+    color: var(--link-hover-color); /* Use variable */
 }
 
-/* Mobile Navbar Toggle */
+/* Container for Menu Icon and Theme Toggle */
+.navbar-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between toggle and menu icon */
+    margin-left: auto; /* Pushes controls to the far right on desktop */
+}
+
+/* Theme Toggle Button */
+.theme-toggle-button {
+    background: none;
+    border: none;
+    color: var(--text-color); /* Use variable */
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.theme-toggle-button:hover {
+    color: var(--link-hover-color); /* Use variable */
+    background: none;
+    border: none;
+}
+
+/* Mobile Navbar Toggle (Hamburger Icon) */
 .menu-icon {
-    display: none; /* Hidden by default on desktop */
+    display: none; /* Hidden by default on desktop, shown by media query */
     flex-direction: column;
     cursor: pointer;
-    z-index: 10; /* Ensure it's above other content */
-    padding: 5px; /* Make it easier to tap */
+    z-index: 10;
+    padding: 5px;
+    transition: all 0.3s ease;
+    color: var(--text-color); /* Use variable */
 }
 
-.menu-icon .bar {
+.menu-icon .bar { /* This is for a 3-bar hamburger, if using FontAwesome, this might not be needed */
     width: 25px;
     height: 3px;
-    background-color: white;
+    background-color: var(--text-color); /* Use variable */
     margin: 4px 0;
     transition: all 0.3s ease;
 }
 
-/* Transform hamburger icon to 'X' */
+/* Transform hamburger icon to 'X' when open - (Note: FontAwesome handles this with faTimes icon) */
 .menu-icon.open .bar:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
@@ -94,27 +121,46 @@
     transform: translateY(-7px) rotate(-45deg);
 }
 
+/* Media Queries for Responsiveness */
+/* Desktop Layout: Show navbar-links, hide menu-icon */
+@media (min-width: 769px) {
+    .navbar-links {
+        display: flex; /* Show desktop links */
+    }
+    .menu-icon {
+        display: none; /* Hide hamburger on desktop */
+    }
+}
+
+/* Tablet and Mobile Layout: Hide navbar-links, show menu-icon, adjust layout */
 @media (max-width: 768px) {
     .navbar {
-        padding: 1rem; /* Adjust padding on smaller screens */
+        padding: 1rem;
+        justify-content: space-between; /* Brand left, controls right on mobile */
     }
 
     .navbar-brand a {
-        font-size: 1.5rem; /* Smaller brand text on mobile */
+        font-size: 1.5rem;
     }
 
+    .navbar-controls {
+        margin-left: 0; /* Reset margin-left: auto from desktop */
+        gap: 0.8rem; /* Closer gap for mobile controls */
+    }
+
+    /* Mobile Menu (collapsible) */
     .navbar-links {
-        display: none; /* Hide by default on small screens */
+        display: none; /* Hidden by default on small screens */
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 60px; /* Adjust based on navbar height */
+        top: 60px; /* Position below navbar (adjust if navbar height changes) */
         left: 0;
-        background-color: #222;
+        background-color: var(--section-bg); /* Use variable */
         padding: 1rem 0;
         text-align: center;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-        z-index: 5; /* Below menu icon */
+        box-shadow: var(--section-shadow); /* Use variable */
+        z-index: 5;
     }
 
     .navbar-links.active {
@@ -122,30 +168,21 @@
     }
 
     .navbar-links li {
-        margin: 0.5rem 0;
+        margin: 0.5rem 0; /* Vertical spacing for mobile menu items */
     }
 
     .menu-icon {
-        display: flex; /* Show hamburger icon on small screens */
+        display: flex; /* Show hamburger icon on mobile */
+    }
+
+    .theme-toggle-button {
+        font-size: 1.1rem; /* Slightly smaller on mobile */
+        padding: 0.4rem;
     }
 }
 
 @media (max-width: 480px) {
     .navbar-brand a {
-        font-size: 1.2rem; /* Even smaller brand text on very small screens */
+        font-size: 1.2rem;
     }
-}
-@media (max-width: 768px) {
-  .navbar {
-    padding: 1rem; /* Adjust padding on smaller screens */
-  }
-
-  .navbar-brand a {
-    font-size: 1.5rem; /* Smaller brand text on mobile */
-  }
-
-  .navbar-links {
-    /* ... existing styles ... */
-    top: 60px; /* Adjust based on navbar height, if necessary after fixed position */
-  }
 }

@@ -6,54 +6,52 @@
 .portfolio-section h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
+    color: var(--heading-color); /* Use variable */
 }
 
 .filter-buttons {
     margin-bottom: 2rem;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Allow buttons to wrap to next line */
+    flex-wrap: wrap;
     gap: 0.8rem;
 }
 
 .filter-buttons button {
-    background-color: #eee;
-    color: #333;
-    border: 1px solid #ddd;
-    flex-grow: 1; /* Allow buttons to grow to fill space */
-    max-width: 150px; /* Max width for individual buttons */
+    background-color: var(--filter-button-bg); /* Use variable */
+    color: var(--filter-button-text); /* Use variable */
+    border: 1px solid var(--card-border); /* Use variable */
+    flex-grow: 1;
+    max-width: 150px;
 }
 .filter-buttons button.active {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
+    background-color: var(--filter-button-active-bg); /* Use variable */
+    color: var(--filter-button-active-text); /* Use variable */
+    border-color: var(--filter-button-active-bg); /* Use variable */
 }
 .filter-buttons button:hover {
-    background-color: #ddd;
-    color: #222;
+    background-color: var(--filter-button-hover-bg); /* Use variable */
+    color: var(--heading-color); /* Use variable */
 }
 .filter-buttons button.active:hover {
-    background-color: #0056b3;
-    color: white;
+    background-color: var(--primary-hover-color); /* Use variable */
+    color: var(--filter-button-active-text); /* Use variable */
 }
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(280px, 1fr)
-    ); /* Auto-fit columns, min 280px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 
 .portfolio-item {
-    background-color: #fff;
+    background-color: var(--card-bg); /* Use variable */
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
-    display: flex; /* Use flex for content within card */
-    flex-direction: column; /* Stack image, title, description */
+    box-shadow: var(--card-shadow); /* Use variable */
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
 }
 
 .portfolio-item:hover {
@@ -63,43 +61,51 @@
 .portfolio-image-container {
     cursor: pointer;
     width: 100%;
-    height: 250px; /* Fixed height for consistency */
-    overflow: hidden; /* Hide overflow if image doesn't fit */
+    height: 250px;
+    overflow: hidden;
+    position: relative; /* Ensure container is relative for absolute positioning of spinner */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--portfolio-loading-bg); /* Use variable */
+    color: var(--portfolio-loading-text); /* Use variable */
+    min-height: 250px;
 }
 
 .portfolio-image-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures images cover the area without distortion */
+    object-fit: cover;
     display: block;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .portfolio-item h3 {
     font-size: 1.2rem;
     margin: 1rem 0.75rem 0.5rem;
-    color: #222;
+    color: var(--heading-color); /* Use variable */
 }
 
 .portfolio-item p {
     font-size: 0.9rem;
-    color: #666;
+    color: var(--text-color); /* Use variable */
     padding: 0 0.75rem 1rem;
-    flex-grow: 1; /* Allow description to take available space */
+    flex-grow: 1;
 }
 
-/* Modal for zoomed image (already responsive with max-width/height) */
+/* Modal for zoomed image */
 .modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: var(--modal-overlay-bg); /* Use variable */
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    cursor: zoom-out; /* Indicate it's clickable to close */
+    cursor: zoom-out;
 }
 
 .modal-image {
@@ -108,16 +114,38 @@
     object-fit: contain;
 }
 
+/* Styles for the Loading Spinner and Error */
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: var(--portfolio-spinner-color); /* Use variable */
+    z-index: 1;
+}
+
+.loading-error {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--portfolio-error-text); /* Use variable */
+    font-size: 0.9rem;
+    padding: 10px;
+    background-color: var(--card-bg); /* Use variable */
+    border-radius: 5px;
+    z-index: 1;
+}
+
 /* Responsive adjustments for Portfolio */
 @media (max-width: 768px) {
     .portfolio-section h2 {
         font-size: 2rem;
     }
     .portfolio-grid {
-        grid-template-columns: repeat(
-            auto-fit,
-            minmax(250px, 1fr)
-        ); /* Smaller min-width on tablets */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 1rem;
     }
 }
@@ -127,61 +155,9 @@
         font-size: 1.8rem;
     }
     .portfolio-grid {
-        grid-template-columns: 1fr; /* Stack items vertically on very small screens */
+        grid-template-columns: 1fr;
     }
     .filter-buttons button {
-        max-width: 100%; /* Buttons take full width */
+        max-width: 100%;
     }
 }
-
-/* ... (your existing Portfolio.css styles) ... */
-
-/* Styles for the Loading Spinner */
-.portfolio-image-container {
-  /* Ensure container is relative for absolute positioning of spinner */
-  position: relative;
-  display: flex; /* Use flexbox to center content */
-  justify-content: center;
-  align-items: center;
-  background-color: #f0f0f0; /* Light background for loading state */
-  color: #888; /* Color for spinner/text */
-  min-height: 250px; /* Ensure space for spinner even if image is hidden */
-  overflow: hidden; /* Hide overflow if image doesn't fit */
-  cursor: pointer;
-}
-
-.loading-spinner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2rem; /* Adjust spinner size */
-  color: #007bff; /* Spinner color */
-  z-index: 1; /* Ensure spinner is above image if image briefly shows */
-}
-
-.loading-error {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #dc3545; /* Error text color */
-  font-size: 0.9rem;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 5px;
-  z-index: 1;
-}
-
-.portfolio-image-container img {
-  /* Ensure the image fills the container when loaded */
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block; /* Ensure it behaves like a block element */
-  transition: opacity 0.3s ease-in-out; /* Smooth transition when image appears */
-}
-
-/* Optional: Hide image while loading, show when loaded */
-/* This is handled by the inline style `display: loadingStates[...] ? 'none' : 'block'` */

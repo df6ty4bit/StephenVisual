@@ -1,5 +1,5 @@
 import React from 'react';
-import './About.css'; // <--- UPDATED IMPORT
+import './About.css';
 
 // Placeholder images for team members
 import stephenPhoto from '../assets/stephen.jpg'; // Create src/assets/stephen.jpg

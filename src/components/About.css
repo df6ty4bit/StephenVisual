@@ -6,26 +6,43 @@
 .about-section h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
+    color: var(--heading-color); /* Use variable */
+}
+
+.about-section h3 {
+    font-size: 1.8rem; /* Added this for 'Our Philosophy' heading, adjust if needed */
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--heading-color); /* Use variable */
+}
+
+.about-section p {
+    color: var(--text-color); /* Use variable */
 }
 
 .team-members {
     display: flex;
-    flex-wrap: wrap; /* Allow members to wrap to the next line */
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem; /* Space between members */
-    margin-top: 2rem;
+    gap: 2rem;
+    margin-top: 3rem; /* Slightly more margin to separate from philosophy text */
 }
 
 .team-member {
-    background-color: #fff;
+    background-color: var(--card-bg); /* Use variable */
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--card-shadow); /* Use variable */
     padding: 1.5rem;
     text-align: center;
-    width: 250px; /* Fixed width for team cards */
-    max-width: 100%; /* Ensure it doesn't overflow on small screens */
-    box-sizing: border-box; /* Include padding in width */
-    flex-shrink: 0; /* Prevent shrinking below content if space is tight */
+    width: 250px;
+    max-width: 100%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
 }
 
 .team-member img {
@@ -34,17 +51,23 @@
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1rem;
-    border: 3px solid #007bff;
+    border: 3px solid var(--primary-color); /* Use variable */
 }
 
 .team-member h3 {
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
-    color: #222;
+    color: var(--primary-color); /* Use primary-color for team member names */
+}
+
+.team-member .role { /* Added class for specific styling on role */
+    font-weight: bold;
+    color: var(--text-color); /* Use variable */
+    margin-bottom: 1rem;
 }
 
 .team-member p {
-    color: #666;
+    color: var(--text-color); /* Use variable */
     font-size: 0.95rem;
 }
 
@@ -53,11 +76,14 @@
     .about-section h2 {
         font-size: 2rem;
     }
+    .about-section h3 {
+        font-size: 1.5rem;
+    }
     .team-members {
-        gap: 1.5rem; /* Reduce gap on smaller screens */
+        gap: 1.5rem;
     }
     .team-member {
-        width: 220px; /* Slightly smaller card width */
+        width: 220px;
         padding: 1.2rem;
     }
 }
@@ -67,11 +93,11 @@
         font-size: 1.8rem;
     }
     .team-member {
-        width: 100%; /* Full width on very small screens, stack vertically */
+        width: 100%;
         padding: 1rem;
     }
     .team-member img {
-        width: 100px; /* Smaller image */
+        width: 100px;
         height: 100px;
     }
 }
