@@ -11,7 +11,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
+    border-radius: 22px;
     box-shadow: var(--section-shadow); /* Add shadow for consistency */
 }
 
@@ -34,23 +34,33 @@
     border-radius: 5px;
     text-decoration: none;
     font-size: 1.2rem;
-    transition: background-color 0.2s, color 0.2s;
+    transition:
+        background-color 0.2s,
+        color 0.2s;
     white-space: nowrap;
 }
 
 .hero-section .btn:hover {
     background-color: var(--button-hover-bg); /* Use variable */
 }
-
 .intro-section {
     text-align: center;
     margin-top: 3rem;
     padding: 2rem;
-    background-color: var(--section-bg); /* Use variable */
-    border-radius: 8px;
-    box-shadow: var(--section-shadow); /* Use variable */
-    color: var(--text-color); /* Use variable */
-    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+    background-color: var(--card-bg); /* Using card-bg for consistency */
+    border-radius: 22px;
+    border: var(--card-border); /* Added for glass effect */
+    box-shadow: var(--card-shadow); /* Adjusts for glass effect */
+    backdrop-filter: var(--backdrop-filter-value); /* Key for glassmorphism */
+    -webkit-backdrop-filter: var(
+        --backdrop-filter-value
+    ); /* For Safari compatibility */
+    color: var(--text-color);
+    transition:
+        background-color 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out,
+        border 0.3s ease-in-out,
+        color 0.3s ease-in-out;
 }
 
 .intro-section h2 {

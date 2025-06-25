@@ -11,10 +11,15 @@
     --heading-color: #222;
     --background-color: #f5f5f5;
     --section-bg: #ffffff;
+    /* Light Mode Adjustments for Glassmorphism */
+    --card-bg: rgba(255, 255, 255, 0.6); /* Slightly transparent white */
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15); /* Stronger, diffused shadow */
+    --card-border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle border for glass effect */
+    --blur-amount: 8px; /* New variable for blur intensity */
+    --backdrop-filter-value: blur(
+        var(--blur-amount)
+    ); /* New variable for backdrop-filter */
     --section-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    --card-bg: #ffffff;
-    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    --card-border: #ddd;
     --link-color: #007bff;
     --link-hover-color: #0056b3;
     --button-bg: #007bff;
@@ -42,6 +47,10 @@
 
 /* Dark Mode Variables */
 body.dark {
+    --card-bg: rgba(60, 60, 60, 0.6); /* Slightly transparent dark grey */
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4); /* Stronger, darker diffused shadow */
+    --card-border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for glass effect */
+    /* --blur-amount and --backdrop-filter-value can be kept the same or adjusted for dark mode */
     --primary-color: #61dafb; /* React blue for accents */
     --primary-hover-color: #21a1f1;
     --text-color: #e0e0e0; /* Lighter text for dark background */
@@ -49,9 +58,6 @@ body.dark {
     --background-color: #1a1a1a; /* Dark background */
     --section-bg: #2d2d2d; /* Slightly lighter dark for sections */
     --section-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    --card-bg: #3c3c3c;
-    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    --card-border: #4a4a4a;
     --link-color: #61dafb;
     --link-hover-color: #21a1f1;
     --button-bg: #61dafb;
@@ -72,13 +78,19 @@ body.dark {
     --modal-overlay-bg: rgba(0, 0, 0, 0.95);
 }
 
+/* src/index.css */
+
+/* ... existing :root and body styles ... */
+
 body {
     margin: 0;
     min-width: 320px;
     min-height: 100vh;
     box-sizing: border-box;
-    background-color: var(--background-color); /* Use variable */
-    color: var(--text-color); /* Use variable */
+    background-color: var(
+        --background-color
+    ); /* This will be a fallback/base for areas not covered by main's background image */
+    color: var(--text-color);
     transition:
         background-color 0.3s ease-in-out,
         color 0.3s ease-in-out;
@@ -92,13 +104,28 @@ body {
 
 main {
     flex-grow: 1;
-    padding: 2rem 1rem; /* Default padding for most screens */
-    max-width: 1200px; /* Maximum width for content */
+    padding: 2rem 1rem;
+    max-width: 1200px;
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
     padding-top: 80px; /* Adjusted to accommodate fixed navbar height more reliably */
+
+    /* --- ADDITIONS FOR BACKGROUND IMAGE --- */
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        /* Darker overlay for text contrast */
+            url("./assets/backgrounds/gengb.jpg") no-repeat center
+            center/cover; /* Replace with your actual image path */
+    background-attachment: fixed; /* Makes the background scroll independently of content */
+    border-radius: 8px; /* Optional: adds a subtle rounded corner to the main content area */
+    box-shadow: var(
+        --section-shadow
+    ); /* Optional: adds a shadow to the main content area */
+    /* --- END ADDITIONS --- */
 }
+
+/* ... rest of index.css ... */
 
 section {
     margin-bottom: 3rem;

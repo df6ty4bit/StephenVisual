@@ -1,12 +1,18 @@
+/* src/components/Navbar.css */
+
 /* Navbar Styles */
 .navbar {
     display: flex;
-    justify-content: flex-start; /* Start elements from the left */
+    justify-content: flex-start;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: var(--section-bg); /* Use variable */
-    color: var(--text-color); /* Use variable */
-    box-shadow: var(--section-shadow); /* Use variable */
+    /* --- GLASSMORPHISM ADDITIONS/CHANGES --- */
+    background-color: var(--card-bg); /* Use the transparent card-bg variable */
+    backdrop-filter: var(--backdrop-filter-value);
+    -webkit-backdrop-filter: var(--backdrop-filter-value); /* For Safari */
+    border-bottom: var(--card-border); /* Subtle border for separation */
+    box-shadow: var(--section-shadow); /* Keep shadow for depth */
+    /* --- END GLASSMORPHISM --- */
     position: fixed;
     top: 0;
     width: 100%;
@@ -14,11 +20,14 @@
     transition:
         background-color 0.3s ease-in-out,
         box-shadow 0.3s ease-in-out,
-        color 0.3s ease-in-out;
+        color 0.3s ease-in-out,
+        border-bottom 0.3s ease-in-out; /* Add border transition */
 }
 
+/* You might want a slightly different background when scrolled for better visibility,
+   or keep it the same for a consistent glass look. I'll make it slightly less transparent for 'scrolled' */
 .navbar.scrolled {
-    background-color: var(--section-bg); /* Can be adjusted if you want a different look on scroll */
+    background-color: var(--card-bg); /* Keep transparent */
     box-shadow: var(--section-shadow);
 }
 
@@ -45,14 +54,13 @@
 /* Navbar Links (Desktop Layout) */
 .navbar-links {
     list-style: none;
-    display: flex; /* Always flex on desktop */
-    flex-grow: 1; /* Allows it to take available space */
-    justify-content: center; /* Centers the links within the available space */
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
     gap: 2rem;
     margin: 0;
     padding: 0;
-    /* Hide on mobile, overridden by media query for desktop */
-    display: none; /* Hidden by default, shown by min-width media query */
+    display: none;
 }
 
 .navbar-links li a {
@@ -70,8 +78,8 @@
 .navbar-controls {
     display: flex;
     align-items: center;
-    gap: 1rem; /* Space between toggle and menu icon */
-    margin-left: auto; /* Pushes controls to the far right on desktop */
+    gap: 1rem;
+    margin-left: auto;
 }
 
 /* Theme Toggle Button */
@@ -93,7 +101,7 @@
 
 /* Mobile Navbar Toggle (Hamburger Icon) */
 .menu-icon {
-    display: none; /* Hidden by default on desktop, shown by media query */
+    display: none;
     flex-direction: column;
     cursor: pointer;
     z-index: 10;
@@ -102,41 +110,20 @@
     color: var(--text-color); /* Use variable */
 }
 
-.menu-icon .bar { /* This is for a 3-bar hamburger, if using FontAwesome, this might not be needed */
-    width: 25px;
-    height: 3px;
-    background-color: var(--text-color); /* Use variable */
-    margin: 4px 0;
-    transition: all 0.3s ease;
-}
-
-/* Transform hamburger icon to 'X' when open - (Note: FontAwesome handles this with faTimes icon) */
-.menu-icon.open .bar:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-}
-.menu-icon.open .bar:nth-child(2) {
-    opacity: 0;
-}
-.menu-icon.open .bar:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-}
-
 /* Media Queries for Responsiveness */
-/* Desktop Layout: Show navbar-links, hide menu-icon */
 @media (min-width: 769px) {
     .navbar-links {
-        display: flex; /* Show desktop links */
+        display: flex;
     }
     .menu-icon {
-        display: none; /* Hide hamburger on desktop */
+        display: none;
     }
 }
 
-/* Tablet and Mobile Layout: Hide navbar-links, show menu-icon, adjust layout */
 @media (max-width: 768px) {
     .navbar {
         padding: 1rem;
-        justify-content: space-between; /* Brand left, controls right on mobile */
+        justify-content: space-between;
     }
 
     .navbar-brand a {
@@ -144,39 +131,45 @@
     }
 
     .navbar-controls {
-        margin-left: 0; /* Reset margin-left: auto from desktop */
-        gap: 0.8rem; /* Closer gap for mobile controls */
+        margin-left: 0;
+        gap: 0.8rem;
     }
 
     /* Mobile Menu (collapsible) */
     .navbar-links {
-        display: none; /* Hidden by default on small screens */
+        display: none;
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 60px; /* Position below navbar (adjust if navbar height changes) */
+        top: 60px;
         left: 0;
-        background-color: var(--section-bg); /* Use variable */
+        /* --- GLASSMORPHISM ADDITIONS/CHANGES FOR MOBILE MENU --- */
+        background-color: var(--card-bg); /* Use transparent card-bg */
+        backdrop-filter: var(--backdrop-filter-value);
+        -webkit-backdrop-filter: var(--backdrop-filter-value);
+        border-top: var(--card-border); /* Add top border for separation */
+        border-bottom: var(--card-border); /* Add bottom border for separation */
+        box-shadow: var(--section-shadow); /* Keep shadow */
+        /* --- END GLASSMORPHISM --- */
         padding: 1rem 0;
         text-align: center;
-        box-shadow: var(--section-shadow); /* Use variable */
         z-index: 5;
     }
 
     .navbar-links.active {
-        display: flex; /* Show when active */
+        display: flex;
     }
 
     .navbar-links li {
-        margin: 0.5rem 0; /* Vertical spacing for mobile menu items */
+        margin: 0.5rem 0;
     }
 
     .menu-icon {
-        display: flex; /* Show hamburger icon on mobile */
+        display: flex;
     }
 
     .theme-toggle-button {
-        font-size: 1.1rem; /* Slightly smaller on mobile */
+        font-size: 1.1rem;
         padding: 0.4rem;
     }
 }

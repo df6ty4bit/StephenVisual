@@ -29,16 +29,25 @@
 }
 
 .team-member {
-    background-color: var(--card-bg); /* Use variable */
-    border-radius: 8px;
-    box-shadow: var(--card-shadow); /* Use variable */
+    background-color: var(--card-bg); /* Now a transparent RGBA */
+    border-radius: 22px;
+    border: var(--card-border); /* Added for glass effect */
+    box-shadow: var(--card-shadow); /* Adjusts for glass effect */
+    backdrop-filter: var(--backdrop-filter-value); /* Key for glassmorphism */
+    -webkit-backdrop-filter: var(
+        --backdrop-filter-value
+    ); /* For Safari compatibility */
     padding: 1.5rem;
     text-align: center;
     width: 250px;
     max-width: 100%;
     box-sizing: border-box;
     flex-shrink: 0;
-    transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition:
+        transform 0.2s ease-in-out,
+        background-color 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out,
+        border 0.3s ease-in-out;
 }
 
 .team-member:hover {
@@ -60,7 +69,8 @@
     color: var(--primary-color); /* Use primary-color for team member names */
 }
 
-.team-member .role { /* Added class for specific styling on role */
+.team-member .role {
+    /* Added class for specific styling on role */
     font-weight: bold;
     color: var(--text-color); /* Use variable */
     margin-bottom: 1rem;

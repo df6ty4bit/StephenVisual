@@ -1,88 +1,98 @@
 /* Contact Section Styles */
 .contact-section {
-  text-align: center;
+    text-align: center;
 }
 
 .contact-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: var(--heading-color); /* Use variable */
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--heading-color); /* Use variable */
 }
 
 .contact-info {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
 }
 
 .contact-info p {
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
-  color: var(--text-color); /* Use variable */
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+    color: var(--text-color); /* Use variable */
 }
 
 .contact-info p strong {
-  color: var(--heading-color); /* Use variable for strong text within contact info */
+    color: var(
+        --heading-color
+    ); /* Use variable for strong text within contact info */
 }
 
 .contact-form {
-  max-width: 600px;
-  margin: 2rem auto;
-  text-align: left;
-  background-color: var(--section-bg); /* Use variable for form background */
-  border-radius: 8px;
-  box-shadow: var(--section-shadow); /* Use variable */
-  padding: 2rem;
-  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    max-width: 600px;
+    margin: 2rem auto;
+    text-align: left;
+    background-color: var(--card-bg); /* Using card-bg for consistency */
+    border-radius: 22px;
+    border: var(--card-border); /* Added for glass effect */
+    box-shadow: var(--card-shadow); /* Adjusts for glass effect */
+    backdrop-filter: var(--backdrop-filter-value); /* Key for glassmorphism */
+    -webkit-backdrop-filter: var(
+        --backdrop-filter-value
+    ); /* For Safari compatibility */
+    padding: 2rem;
+    transition:
+        background-color 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out,
+        border 0.3s ease-in-out;
 }
 
 .contact-form h3 {
-  color: var(--heading-color); /* Use variable */
-  margin-bottom: 1.5rem;
-  text-align: center;
+    color: var(--heading-color); /* Use variable */
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 .contact-form label {
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  color: var(--text-color); /* Use variable */
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--text-color); /* Use variable */
 }
 
 .contact-form button {
-  width: auto;
-  align-self: flex-start;
-  padding: 0.8em 1.5em;
-  background-color: var(--button-bg); /* Use variable */
-  color: var(--button-text); /* Use variable */
+    width: auto;
+    align-self: flex-start;
+    padding: 0.8em 1.5em;
+    background-color: var(--button-bg); /* Use variable */
+    color: var(--button-text); /* Use variable */
 }
 
 .contact-form button:hover {
-  background-color: var(--button-hover-bg); /* Use variable */
+    background-color: var(--button-hover-bg); /* Use variable */
 }
 
 /* Responsive adjustments for Contact */
 @media (max-width: 768px) {
-  .contact-section h2 {
-    font-size: 2rem;
-  }
-  .contact-form {
-    padding: 1.5rem 1rem; /* Adjust padding for tablets */
-  }
-  .contact-info p {
-    font-size: 1rem;
-  }
+    .contact-section h2 {
+        font-size: 2rem;
+    }
+    .contact-form {
+        padding: 1.5rem 1rem; /* Adjust padding for tablets */
+    }
+    .contact-info p {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
-  .contact-section h2 {
-    font-size: 1.8rem;
-  }
-  .contact-form {
-    padding: 1rem 0.5rem; /* More padding on very small screens */
-  }
-  .contact-info {
-    gap: 0.75rem;
-  }
+    .contact-section h2 {
+        font-size: 1.8rem;
+    }
+    .contact-form {
+        padding: 1rem 0.5rem; /* More padding on very small screens */
+    }
+    .contact-info {
+        gap: 0.75rem;
+    }
 }

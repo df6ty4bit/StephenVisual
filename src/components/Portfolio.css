@@ -45,11 +45,13 @@
 }
 
 .portfolio-item {
-    background-color: var(--card-bg); /* Use variable */
+    background-color: var(--card-bg); /* Now a transparent RGBA */
     border-radius: 8px;
-    overflow: hidden;
-    box-shadow: var(--card-shadow); /* Use variable */
-    transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: var(--card-border); /* Added for glass effect */
+    box-shadow: var(--card-shadow); /* Adjusts for glass effect */
+    backdrop-filter: var(--backdrop-filter-value); /* Key for glassmorphism */
+    -webkit-backdrop-filter: var(--backdrop-filter-value); /* For Safari compatibility */
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
 }
