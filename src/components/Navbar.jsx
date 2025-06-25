@@ -1,99 +1,79 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faBars,
-    faTimes,
-    faSun,
-    faMoon
-} from "@fortawesome/free-solid-svg-icons";
-import logoPlaceholder from "../assets/logo.png";
-import "./Navbar.css";
+// src/components/Navbar.jsx
 
-const Navbar = ({
-    isMenuOpen,
-    toggleMenu,
-    closeMenu,
-    toggleTheme,
-    currentTheme
-}) => {
-    const [scrolled, setScrolled] = useState(false);
+import React, { useState, useEffect } from 'react';
+// import { Link } from 'react-router-dom'; // You can remove this import if not needed elsewhere
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes, faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import logoPlaceholder from '../assets/logo.png';
+import './Navbar.css';
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const offset = window.scrollY;
-            if (offset > 50) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
-        };
+const Navbar = ({ isMenuOpen, toggleMenu, closeMenu, toggleTheme, currentTheme }) => {
+  const [scrolled, setScrolled] = useState(false);
 
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if (offset > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
 
-    return (
-        <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
-            <div className="navbar-brand">
-                <Link to="/" onClick={closeMenu}>
-                    <img src={logoPlaceholder} alt="StephenVisual Logo" />
-                    StephenVisual
-                </Link>
-            </div>
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
-            <div className="navbar-controls">
-                {" "}
-                {/* New container for menu icon and theme toggle */}
-                <button
-                    className="theme-toggle-button"
-                    onClick={toggleTheme}
-                    aria-label="Toggle theme"
-                >
-                    <FontAwesomeIcon
-                        icon={currentTheme === "light" ? faMoon : faSun}
-                    />
-                </button>
-                <div
-                    className="menu-icon"
-                    onClick={toggleMenu}
-                    aria-label="Toggle navigation menu"
-                >
-                    <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
-                </div>
-            </div>
+  // Function to handle smooth scrolling
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      // Offset by navbar height if it's fixed
+      const offset = 70; // Adjust this value based on your navbar's actual height
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
 
-            <ul className={`navbar-links ${isMenuOpen ? "active" : ""}`}>
-                <li>
-                    <Link to="/" onClick={closeMenu}>
-                        Home
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/portfolio" onClick={closeMenu}>
-                        Portfolio
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/services" onClick={closeMenu}>
-                        Services
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/about" onClick={closeMenu}>
-                        About Us
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/contact" onClick={closeMenu}>
-                        Contact
-                    </Link>
-                </li>
-            </ul>
-        </nav>
-    );
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+      closeMenu(); // Close mobile menu after clicking
+    }
+  };
+
+  return (
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <div className="navbar-brand">
+        {/* Link to home section if you have an ID on it */}
+        <a href="#home" onClick={() => { scrollToSection('home'); closeMenu(); }}>
+          <img src={logoPlaceholder} alt="StephenVisual Logo" />
+          StephenVisual
+        </a>
+      </div>
+
+      <div className="navbar-controls">
+        <button className="theme-toggle-button" onClick={toggleTheme} aria-label="Toggle theme">
+          <FontAwesomeIcon icon={currentTheme === 'light' ? faMoon : faSun} />
+        </button>
+        <div className="menu-icon" onClick={toggleMenu} aria-label="Toggle navigation menu">
+          <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
+        </div>
+      </div>
+
+      <ul className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
+        {/* Update links to use onClick for scrolling */}
+        <li><a href="#home" onClick={() => scrollToSection('home')}>Home</a></li>
+        <li><a href="#portfolio" onClick={() => scrollToSection('portfolio')}>Portfolio</a></li>
+        <li><a href="#services" onClick={() => scrollToSection('services')}>Services</a></li>
+        <li><a href="#about" onClick={() => scrollToSection('about')}>About Us</a></li>
+        <li><a href="#contact" onClick={() => scrollToSection('contact')}>Contact</a></li>
+      </ul>
+    </nav>
+  );
 };
 
 export default Navbar;

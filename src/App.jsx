@@ -1,25 +1,21 @@
+// src/App.jsx
+
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom'; // Keep BrowserRouter for navbar links
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './components/Home';
-import Portfolio from './components/Portfolio';
-import Services from './components/Services';
-import About from './components/About';
-import Contact from './components/Contact';
+import Home from './components/Home'; // We will mount all content within Home.jsx
 
 import './index.css';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [theme, setTheme] = useState(() => {
-    // Get theme from localStorage, or default to 'light'
     const savedTheme = localStorage.getItem('theme');
     return savedTheme || 'light';
   });
 
-  // Effect to apply theme class to body and save to localStorage
   useEffect(() => {
     document.body.className = theme;
     localStorage.setItem('theme', theme);
@@ -47,13 +43,9 @@ function App() {
         currentTheme={theme}
       />
       <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        {/* Only the Home component is rendered here.
+            It will internally render Portfolio, Services, About, and Contact. */}
+        <Home />
       </main>
       <Footer />
     </Router>
