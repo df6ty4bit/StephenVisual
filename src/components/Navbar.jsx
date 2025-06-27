@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 // import { Link } from 'react-router-dom'; // You can remove this import if not needed elsewhere
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
-import logoPlaceholder from '../assets/logo.png';
+import logoPlaceholder from '../assets/teammembers/stephen.jpg';
 import './Navbar.css';
 
 const Navbar = ({ isMenuOpen, toggleMenu, closeMenu, toggleTheme, currentTheme }) => {

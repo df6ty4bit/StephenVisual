@@ -1,18 +1,33 @@
-//imports
-//weddingd
 import wedding1_1 from "../assets/weddings/wedding1_1.jpg";
 import wedding1_2 from "../assets/weddings/wedding1_2.jpg";
 import wedding1_3 from "../assets/weddings/wedding1_3.jpg";
-//portraits
-import portrait1 from "../assets/portrait1.jpg";
-//Product
-import product1_1 from "../assets/products/product1_2.jpg";
-import product1_2 from "../assets/products/product1_2.jpg";
-import product1_3 from "../assets/product1_3.jpg";
-//Corporate
-import corporate1 from "../assets/corporate1.jpg";
-//Editing
-import editing1 from "../assets/editing1.jpg";
+import wedding1_4 from "../assets/weddings/wedding1_4.jpg";
+
+import Singleportrait1 from "../assets/portraits/single/single1_1.jpg";
+import Singleportrait2 from "../assets/portraits/single/single1_2.jpg";
+import Singleportrait3 from "../assets/portraits/single/single1_3.jpg";
+
+import Familyportrait1 from "../assets/portraits/family/family1_1.jpg";
+
+import product1 from "../assets/products/product1_2.jpg";
+import product2 from "../assets/products/product1_2.jpg";
+import product3 from "../assets/products/product1_3.jpg";
+
+import corporate1 from "../assets/corporateevents/corporate1_1.jpg";
+import corporate2 from "../assets/corporateevents/corporate1_2.jpg";
+import corporate3 from "../assets/corporateevents/corporate1_3.jpg";
+
+import editIndoor1 from "../assets/photoedits/indoor/indoor1_1.jpg";
+import editIndoor2 from "../assets/photoedits/indoor/indoor1_2.jpg";
+import editIndoor3 from "../assets/photoedits/indoor/indoor1_3.jpg";
+
+import editOutdoor1 from "../assets/photoedits/outdoor/outdoor1_1.jpg";
+import editOutdoor2 from "../assets/photoedits/outdoor/outdoor1_2.jpg";
+import editOutdoor3 from "../assets/photoedits/outdoor/outdoor1_3.jpg";
+
+import children1 from "../assets/children/children1_1.jpg";
+import children2 from "../assets/children/children1_2.jpg";
+import children3 from "../assets/children/children1_3.jpg";
 const portfolioItems = [
     {
         id: 1,
@@ -24,38 +39,53 @@ const portfolioItems = [
     },
     {
         id: 2,
-        title: "Studio Portrait",
+        title: "Single Portrait",
         category: "Portraits",
-        image: portrait1,
+        image: [Singleportrait1, Singleportrait2, Singleportrait3],
         description:
             "Professional studio session capturing a vibrant personality."
     },
     {
         id: 3,
+        title: "Children Portrait",
+        category: "Portraits",
+        image: [children1,children2,children3],
+        description:
+            "Professional studio session capturing a Ever lovely Children."
+    },
+    {
+        id: 4,
         title: "E-commerce Product Showcase",
         category: "Product Photography",
-        images: [product1_1, product1_2, product1_3],
+        images: [product1, product1, product1],
         description:
             "High-quality images designed to highlight product details for online stores."
     },
     {
-        id: 3,
+        id: 5,
         title: "Corporate Event Coverage",
         category: "Corporate Events",
-        image: corporate1,
+        image: [corporate1, corporate1, corporate1],
         description:
             "Comprehensive photography for conferences, seminars, and corporate gatherings."
     },
     {
-        id: 5,
+        id: 6,
         title: "Advanced Photo Retouching",
         category: "Photo Editing",
-        image: editing1,
+        image: [
+            editIndoor1,
+            editIndoor2,
+            editIndoor3,
+            editOutdoor1,
+            editOutdoor2,
+            editOutdoor3
+        ],
         description:
             "Bringing out the best in every image with professional retouching techniques."
     },
     {
-        id: 6,
+        id: 7,
         title: "Traditional Engagement",
         category: "Weddings",
         image: "https://via.placeholder.com/600x400/FF5733/FFFFFF?text=Engagement",
@@ -63,15 +93,15 @@ const portfolioItems = [
             "Documenting the beauty and cultural richness of traditional engagement ceremonies."
     },
     {
-        id: 7,
+        id: 8,
         title: "Family Photoshoot",
         category: "Portraits",
-        image: "https://via.placeholder.com/600x400/33FF57/FFFFFF?text=Family",
+        image: Familyportrait1,
         description:
             "Creating timeless memories with heartfelt family portraits."
     },
     {
-        id: 8,
+        id: 9,
         title: "Brand Launch Event",
         category: "Corporate Events",
         image: "https://via.placeholder.com/600x400/3357FF/FFFFFF?text=Launch",
@@ -79,7 +109,7 @@ const portfolioItems = [
             "Capturing the excitement and energy of brand new product launches."
     },
     {
-        id: 9,
+        id: 10,
         title: "Fashion Editorial Editing",
         category: "Photo Editing",
         image: "https://via.placeholder.com/600x400/FFFF33/333333?text=Fashion+Edit",
@@ -87,7 +117,7 @@ const portfolioItems = [
             "Elevating fashion photography with expert color grading and retouching."
     },
     {
-        id: 10,
+        id: 11,
         title: "Food Photography",
         category: "Product Photography",
         image: "https://via.placeholder.com/600x400/33FFFF/333333?text=Food",
