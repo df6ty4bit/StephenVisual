@@ -1,4 +1,3 @@
-/* Contact Section Styles */
 .contact-section {
     text-align: center;
 }
@@ -6,7 +5,7 @@
 .contact-section h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: var(--heading-color); /* Use variable */
+    color: var(--heading-color);
 }
 
 .contact-info {
@@ -20,27 +19,23 @@
 .contact-info p {
     font-size: 1.1rem;
     margin: 0.5rem 0;
-    color: var(--text-color); /* Use variable */
+    color: var(--text-color);
 }
 
 .contact-info p strong {
-    color: var(
-        --heading-color
-    ); /* Use variable for strong text within contact info */
+    color: var(--heading-color);
 }
 
 .contact-form {
     max-width: 600px;
     margin: 2rem auto;
     text-align: left;
-    background-color: var(--card-bg); /* Using card-bg for consistency */
+    background-color: var(--card-bg);
     border-radius: 22px;
-    border: var(--card-border); /* Added for glass effect */
-    box-shadow: var(--card-shadow); /* Adjusts for glass effect */
-    backdrop-filter: var(--backdrop-filter-value); /* Key for glassmorphism */
-    -webkit-backdrop-filter: var(
-        --backdrop-filter-value
-    ); /* For Safari compatibility */
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+    backdrop-filter: var(--backdrop-filter-value);
+    -webkit-backdrop-filter: var(--backdrop-filter-value);
     padding: 2rem;
     transition:
         background-color 0.3s ease-in-out,
@@ -49,7 +44,7 @@
 }
 
 .contact-form h3 {
-    color: var(--heading-color); /* Use variable */
+    color: var(--heading-color);
     margin-bottom: 1.5rem;
     text-align: center;
 }
@@ -57,29 +52,30 @@
 .contact-form label {
     margin-bottom: 0.5rem;
     font-weight: bold;
-    color: var(--text-color); /* Use variable */
+    color: var(--text-color);
 }
 
 .contact-form button {
     width: auto;
     align-self: flex-start;
     padding: 0.8em 1.5em;
-    background-color: var(--button-bg); /* Use variable */
-    color: var(--button-text); /* Use variable */
+    background-color: var(--button-bg);
+    color: var(--button-text);
 }
 
 .contact-form button:hover {
-    background-color: var(--button-hover-bg); /* Use variable */
+    background-color: var(--button-hover-bg);
 }
 
-/* Responsive adjustments for Contact */
 @media (max-width: 768px) {
     .contact-section h2 {
         font-size: 2rem;
     }
+
     .contact-form {
-        padding: 1.5rem 1rem; /* Adjust padding for tablets */
+        padding: 1.5rem 1rem;
     }
+
     .contact-info p {
         font-size: 1rem;
     }
@@ -89,9 +85,11 @@
     .contact-section h2 {
         font-size: 1.8rem;
     }
+
     .contact-form {
-        padding: 1rem 0.5rem; /* More padding on very small screens */
+        padding: 1rem 0.5rem;
     }
+
     .contact-info {
         gap: 0.75rem;
     }

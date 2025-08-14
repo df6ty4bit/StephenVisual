@@ -1,4 +1,3 @@
-/* Portfolio Section Styles */
 .portfolio-section {
     text-align: center;
 }
@@ -6,7 +5,7 @@
 .portfolio-section h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: var(--heading-color); /* Use variable */
+    color: var(--heading-color);
 }
 
 .filter-buttons {
@@ -18,24 +17,27 @@
 }
 
 .filter-buttons button {
-    background-color: var(--filter-button-bg); /* Use variable */
-    color: var(--filter-button-text); /* Use variable */
-    border: 1px solid var(--card-border); /* Use variable */
+    background-color: var(--filter-button-bg);
+    color: var(--filter-button-text);
+    border: 1px solid var(--card-border);
     flex-grow: 1;
     max-width: 150px;
 }
+
 .filter-buttons button.active {
-    background-color: var(--filter-button-active-bg); /* Use variable */
-    color: var(--filter-button-active-text); /* Use variable */
-    border-color: var(--filter-button-active-bg); /* Use variable */
+    background-color: var(--filter-button-active-bg);
+    color: var(--filter-button-active-text);
+    border-color: var(--filter-button-active-bg);
 }
+
 .filter-buttons button:hover {
-    background-color: var(--filter-button-hover-bg); /* Use variable */
-    color: var(--heading-color); /* Use variable */
+    background-color: var(--filter-button-hover-bg);
+    color: var(--heading-color);
 }
+
 .filter-buttons button.active:hover {
-    background-color: var(--primary-hover-color); /* Use variable */
-    color: var(--filter-button-active-text); /* Use variable */
+    background-color: var(--primary-hover-color);
+    color: var(--filter-button-active-text);
 }
 
 .portfolio-grid {
@@ -45,12 +47,12 @@
 }
 
 .portfolio-item {
-    background-color: var(--card-bg); /* Now a transparent RGBA */
+    background-color: var(--card-bg);
     border-radius: 8px;
-    border: var(--card-border); /* Added for glass effect */
-    box-shadow: var(--card-shadow); /* Adjusts for glass effect */
-    backdrop-filter: var(--backdrop-filter-value); /* Key for glassmorphism */
-    -webkit-backdrop-filter: var(--backdrop-filter-value); /* For Safari compatibility */
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+    backdrop-filter: var(--backdrop-filter-value);
+    -webkit-backdrop-filter: var(--backdrop-filter-value);
     transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
@@ -65,12 +67,12 @@
     width: 100%;
     height: 250px;
     overflow: hidden;
-    position: relative; /* Ensure container is relative for absolute positioning of spinner */
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--portfolio-loading-bg); /* Use variable */
-    color: var(--portfolio-loading-text); /* Use variable */
+    background-color: var(--portfolio-loading-bg);
+    color: var(--portfolio-loading-text);
     min-height: 250px;
 }
 
@@ -85,24 +87,23 @@
 .portfolio-item h3 {
     font-size: 1.2rem;
     margin: 1rem 0.75rem 0.5rem;
-    color: var(--heading-color); /* Use variable */
+    color: var(--heading-color);
 }
 
 .portfolio-item p {
     font-size: 0.9rem;
-    color: var(--text-color); /* Use variable */
+    color: var(--text-color);
     padding: 0 0.75rem 1rem;
     flex-grow: 1;
 }
 
-/* Modal for zoomed image */
 .modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--modal-overlay-bg); /* Use variable */
+    background-color: var(--modal-overlay-bg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -116,14 +117,13 @@
     object-fit: contain;
 }
 
-/* Styles for the Loading Spinner and Error */
 .loading-spinner {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 2rem;
-    color: var(--portfolio-spinner-color); /* Use variable */
+    color: var(--portfolio-spinner-color);
     z-index: 1;
 }
 
@@ -133,19 +133,19 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: var(--portfolio-error-text); /* Use variable */
+    color: var(--portfolio-error-text);
     font-size: 0.9rem;
     padding: 10px;
-    background-color: var(--card-bg); /* Use variable */
+    background-color: var(--card-bg);
     border-radius: 5px;
     z-index: 1;
 }
 
-/* Responsive adjustments for Portfolio */
 @media (max-width: 768px) {
     .portfolio-section h2 {
         font-size: 2rem;
     }
+
     .portfolio-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 1rem;
@@ -156,9 +156,11 @@
     .portfolio-section h2 {
         font-size: 1.8rem;
     }
+
     .portfolio-grid {
         grid-template-columns: 1fr;
     }
+
     .filter-buttons button {
         max-width: 100%;
     }

@@ -1,19 +1,14 @@
-/* src/components/Footer.css */
-
-/* Footer Styles */
 .footer {
-  /* --- GLASSMORPHISM ADDITIONS/CHANGES --- */
-  background-color: var(--card-bg); /* Use the transparent card-bg variable */
+  background-color: var(--card-bg);
   backdrop-filter: var(--backdrop-filter-value);
-  -webkit-backdrop-filter: var(--backdrop-filter-value); /* For Safari */
-  border-top: var(--card-border); /* Subtle border for separation */
-  box-shadow: var(--section-shadow); /* Keep shadow for depth */
-  /* --- END GLASSMORPHISM --- */
+  -webkit-backdrop-filter: var(--backdrop-filter-value);
+  border-top: var(--card-border);
+  box-shadow: var(--section-shadow);
   color: var(--text-color);
   padding: 2rem 1rem;
   text-align: center;
   margin-top: 3rem;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-top 0.3s ease-in-out; /* Add border transition */
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-top 0.3s ease-in-out;
 }
 
 .footer-links {
@@ -31,6 +26,7 @@
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 }
+
 .footer-links li a:hover {
   color: var(--link-hover-color);
 }
@@ -41,15 +37,16 @@
   margin: 0 0.5rem;
   transition: color 0.2s ease-in-out;
 }
+
 .social-icons a:hover {
   color: var(--link-hover-color);
 }
 
-/* Responsive adjustments for Footer */
 @media (max-width: 768px) {
   .footer {
     padding: 1.5rem 1rem;
   }
+
   .footer-links {
     gap: 1rem;
   }
@@ -59,6 +56,7 @@
   .footer {
     padding: 1rem 0.5rem;
   }
+
   .social-icons a {
     font-size: 1rem;
   }

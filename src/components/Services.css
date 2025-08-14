@@ -1,16 +1,14 @@
-/* Services Section Styles */
 .services-section {
     text-align: center;
     padding: 4rem 2rem;
     background:
         linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url("../assets/backgrounds/services-bg.png") no-repeat center
-            center/cover;
+        url("../assets/backgrounds/services-bg.png") no-repeat center center/cover;
     background-size: cover;
     background-attachment: fixed;
-    color: white; /* Text color remains white for contrast against background image */
+    color: white;
     border-radius: 8px;
-    box-shadow: var(--section-shadow); /* Use variable for consistency */
+    box-shadow: var(--section-shadow);
     min-height: 500px;
     display: flex;
     flex-direction: column;
@@ -21,7 +19,7 @@
 .services-section h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: white; /* Heading remains white for contrast on image background */
+    color: white;
     z-index: 1;
 }
 
@@ -36,14 +34,12 @@
 }
 
 .service-card {
-    background-color: var(--card-bg); /* Now a transparent RGBA */
+    background-color: var(--card-bg);
     border-radius: 22px;
-    border: var(--card-border); /* Added for glass effect */
-    box-shadow: var(--card-shadow); /* Adjusts for glass effect */
-    backdrop-filter: var(--backdrop-filter-value); /* Key for glassmorphism */
-    -webkit-backdrop-filter: var(
-        --backdrop-filter-value
-    ); /* For Safari compatibility */
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+    backdrop-filter: var(--backdrop-filter-value);
+    -webkit-backdrop-filter: var(--backdrop-filter-value);
     padding: 1.5rem;
     text-align: center;
     transition:
@@ -56,38 +52,39 @@
 
 .service-card:hover {
     transform: translateY(-5px);
-    background-color: var(
-        --card-bg
-    ); /* Adjust if you want a distinct hover effect */
+    background-color: var(--card-bg);
 }
 
 .service-card h3 {
     font-size: 1.5rem;
-    color: var(--primary-color); /* Use variable */
+    color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
 .service-card p {
-    color: var(--text-color); /* Use variable */
+    color: var(--text-color);
     line-height: 1.6;
 }
 
-/* Responsive adjustments for Services */
 @media (max-width: 768px) {
     .services-section {
         padding: 3rem 1.5rem;
         min-height: 400px;
     }
+
     .services-section h2 {
         font-size: 2rem;
     }
+
     .services-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 1.5rem;
     }
+
     .service-card {
         padding: 1rem;
     }
+
     .service-card h3 {
         font-size: 1.3rem;
     }
@@ -98,9 +95,11 @@
         padding: 2rem 1rem;
         min-height: 300px;
     }
+
     .services-section h2 {
         font-size: 1.8rem;
     }
+
     .services-grid {
         grid-template-columns: 1fr;
     }

@@ -1,4 +1,3 @@
-/* About Section Styles */
 .about-section {
     text-align: center;
 }
@@ -6,18 +5,18 @@
 .about-section h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: var(--heading-color); /* Use variable */
+    color: var(--heading-color);
 }
 
 .about-section h3 {
-    font-size: 1.8rem; /* Added this for 'Our Philosophy' heading, adjust if needed */
+    font-size: 1.8rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
-    color: var(--heading-color); /* Use variable */
+    color: var(--heading-color);
 }
 
 .about-section p {
-    color: var(--text-color); /* Use variable */
+    color: var(--text-color);
 }
 
 .team-members {
@@ -25,18 +24,16 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
-    margin-top: 3rem; /* Slightly more margin to separate from philosophy text */
+    margin-top: 3rem;
 }
 
 .team-member {
-    background-color: var(--card-bg); /* Now a transparent RGBA */
+    background-color: var(--card-bg);
     border-radius: 22px;
-    border: var(--card-border); /* Added for glass effect */
-    box-shadow: var(--card-shadow); /* Adjusts for glass effect */
-    backdrop-filter: var(--backdrop-filter-value); /* Key for glassmorphism */
-    -webkit-backdrop-filter: var(
-        --backdrop-filter-value
-    ); /* For Safari compatibility */
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+    backdrop-filter: var(--backdrop-filter-value);
+    -webkit-backdrop-filter: var(--backdrop-filter-value);
     padding: 1.5rem;
     text-align: center;
     width: 250px;
@@ -60,38 +57,39 @@
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1rem;
-    border: 3px solid var(--primary-color); /* Use variable */
+    border: 3px solid var(--primary-color);
 }
 
 .team-member h3 {
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
-    color: var(--primary-color); /* Use primary-color for team member names */
+    color: var(--primary-color);
 }
 
 .team-member .role {
-    /* Added class for specific styling on role */
     font-weight: bold;
-    color: var(--text-color); /* Use variable */
+    color: var(--text-color);
     margin-bottom: 1rem;
 }
 
 .team-member p {
-    color: var(--text-color); /* Use variable */
+    color: var(--text-color);
     font-size: 0.95rem;
 }
 
-/* Responsive adjustments for About */
 @media (max-width: 768px) {
     .about-section h2 {
         font-size: 2rem;
     }
+
     .about-section h3 {
         font-size: 1.5rem;
     }
+
     .team-members {
         gap: 1.5rem;
     }
+
     .team-member {
         width: 220px;
         padding: 1.2rem;
@@ -102,10 +100,12 @@
     .about-section h2 {
         font-size: 1.8rem;
     }
+
     .team-member {
         width: 100%;
         padding: 1rem;
     }
+
     .team-member img {
         width: 100px;
         height: 100px;
