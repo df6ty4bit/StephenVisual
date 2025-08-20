@@ -1,7 +1,7 @@
 import React from "react";
 import "./About.css";
 
-// Placeholder images for team members
+
 import stephenPhoto from "../assets/teammembers/stephen.jpg"; // Create src/assets/stephen.jpg
 import editor1Photo from "../assets/teammembers/stephen.jpg"; // Create src/assets/editor1.jpg
 import editor2Photo from "../assets/teammembers/stephen.jpg"; // Create src/assets/editor2.jpg
