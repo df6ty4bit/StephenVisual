@@ -61,8 +61,12 @@ const Navbar = ({
             closeMenu();
           }}
         >
-          <img src={logoPlaceholder} alt="StephenVisual Logo" />
-          StephenVisual
+          <img
+            src={logoPlaceholder}
+            alt="StephenVisual Logo"
+            className="logo-img"
+          />
+          <p className="header-name">StephenVisual</p>
         </a>
       </div>
       <div className="navbar-controls">

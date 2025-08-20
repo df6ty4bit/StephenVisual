@@ -1,4 +1,19 @@
 /* src/components/Navbar.css */
+.logo-img {
+    border-radius: 36px;
+    top: 5px;
+    margin: 0px 7px 0px 7px;
+    position: relative;
+}
+
+.header-name {
+    display: inline;
+    font-size: 1.5rem;
+    color: var(--heading-color);
+    font-weight: bold;
+    margin-left: 10px;
+}
+
 .navbar {
     display: flex;
     justify-content: flex-start;
