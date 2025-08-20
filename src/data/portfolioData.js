@@ -13,9 +13,9 @@ import product1 from "../assets/products/product1_2.jpg";
 import product2 from "../assets/products/product1_2.jpg";
 import product3 from "../assets/products/product1_3.jpg";
 
-import corporate1 from "../assets/corporateevents/corporate1_1.jpg";
-import corporate2 from "../assets/corporateevents/corporate1_2.jpg";
-import corporate3 from "../assets/corporateevents/corporate1_3.jpg";
+import corporate1_1 from "../assets/corporateevents/corporate1_1.jpg";
+import corporate1_2 from "../assets/corporateevents/corporate1_2.jpg";
+import corporate1_3 from "../assets/corporateevents/corporate1_3.jpg";
 
 import editIndoor1 from "../assets/photoedits/indoor/indoor1_1.jpg";
 import editIndoor2 from "../assets/photoedits/indoor/indoor1_2.jpg";
@@ -25,9 +25,9 @@ import editOutdoor1 from "../assets/photoedits/outdoor/outdoor1_1.jpg";
 import editOutdoor2 from "../assets/photoedits/outdoor/outdoor1_2.jpg";
 import editOutdoor3 from "../assets/photoedits/outdoor/outdoor1_3.jpg";
 
-import children1 from "../assets/children/children1_1.jpg";
-import children2 from "../assets/children/children1_2.jpg";
-import children3 from "../assets/children/children1_3.jpg";
+import children1_1 from "../assets/children/children1_1.jpg";
+import children1_2 from "../assets/children/children1_2.jpg";
+import children1_3 from "../assets/children/children1_3.jpg";
 const portfolioItems = [
     {
         id: 1,
@@ -41,7 +41,7 @@ const portfolioItems = [
         id: 2,
         title: "Single Portrait",
         category: "Portraits",
-        image: [Singleportrait1, Singleportrait2, Singleportrait3],
+        images: [Singleportrait1, Singleportrait2, Singleportrait3],
         description:
             "Professional studio session capturing a vibrant personality."
     },
@@ -49,7 +49,7 @@ const portfolioItems = [
         id: 3,
         title: "Children Portrait",
         category: "Portraits",
-        image: [children1,children2,children3],
+        images: [children1_1,children1_2,children1_3],
         description:
             "Professional studio session capturing a Ever lovely Children."
     },
@@ -65,7 +65,7 @@ const portfolioItems = [
         id: 5,
         title: "Corporate Event Coverage",
         category: "Corporate Events",
-        image: [corporate1, corporate1, corporate1],
+        images: [corporate1_1, corporate1_2, corporate1_3],
         description:
             "Comprehensive photography for conferences, seminars, and corporate gatherings."
     },
@@ -73,7 +73,7 @@ const portfolioItems = [
         id: 6,
         title: "Advanced Photo Retouching",
         category: "Photo Editing",
-        image: [
+        images: [
             editIndoor1,
             editIndoor2,
             editIndoor3,
@@ -84,46 +84,46 @@ const portfolioItems = [
         description:
             "Bringing out the best in every image with professional retouching techniques."
     },
-    {
-        id: 7,
-        title: "Traditional Engagement",
-        category: "Weddings",
-        image: "https://via.placeholder.com/600x400/FF5733/FFFFFF?text=Engagement",
-        description:
-            "Documenting the beauty and cultural richness of traditional engagement ceremonies."
-    },
+    // {
+    //     id: 7,
+    //     title: "Traditional Engagement",
+    //     category: "Weddings",
+    //     image: "https://via.placeholder.com/600x400/FF5733/FFFFFF?text=Engagement",
+    //     description:
+    //         "Documenting the beauty and cultural richness of traditional engagement ceremonies."
+    // },
     {
         id: 8,
         title: "Family Photoshoot",
         category: "Portraits",
-        image: Familyportrait1,
+        images: Familyportrait1,
         description:
             "Creating timeless memories with heartfelt family portraits."
     },
-    {
-        id: 9,
-        title: "Brand Launch Event",
-        category: "Corporate Events",
-        image: "https://via.placeholder.com/600x400/3357FF/FFFFFF?text=Launch",
-        description:
-            "Capturing the excitement and energy of brand new product launches."
-    },
-    {
-        id: 10,
-        title: "Fashion Editorial Editing",
-        category: "Photo Editing",
-        image: "https://via.placeholder.com/600x400/FFFF33/333333?text=Fashion+Edit",
-        description:
-            "Elevating fashion photography with expert color grading and retouching."
-    },
-    {
-        id: 11,
-        title: "Food Photography",
-        category: "Product Photography",
-        image: "https://via.placeholder.com/600x400/33FFFF/333333?text=Food",
-        description:
-            "Appetizing images for menus, websites, and culinary publications."
-    }
+    // {
+    //     id: 9,
+    //     title: "Brand Launch Event",
+    //     category: "Corporate Events",
+    //     image: "https://via.placeholder.com/600x400/3357FF/FFFFFF?text=Launch",
+    //     description:
+    //         "Capturing the excitement and energy of brand new product launches."
+    // },
+    // {
+    //     id: 10,
+    //     title: "Fashion Editorial Editing",
+    //     category: "Photo Editing",
+    //     image: "https://via.placeholder.com/600x400/FFFF33/333333?text=Fashion+Edit",
+    //     description:
+    //         "Elevating fashion photography with expert color grading and retouching."
+    // },
+    // {
+    //     id: 11,
+    //     title: "Food Photography",
+    //     category: "Product Photography",
+    //     image: "https://via.placeholder.com/600x400/33FFFF/333333?text=Food",
+    //     description:
+    //         "Appetizing images for menus, websites, and culinary publications."
+    // }
 ];
 
 export default portfolioItems;

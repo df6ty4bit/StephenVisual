@@ -1,3 +1,8 @@
+.stock-image {
+    object-position: top;
+    object-fit: cover;
+}
+
 .portfolio-section {
     text-align: center;
 }

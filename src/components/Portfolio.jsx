@@ -44,7 +44,7 @@ const Portfolio = () => {
               [`item-${item.id}`]: nextIndex,
             };
           });
-        }, 10000);
+        }, 9000);
       }
     });
     return () => {
@@ -123,6 +123,7 @@ const Portfolio = () => {
                 <img
                   src={getCurrentImage(item)}
                   alt={item.title}
+                  className="stock-image"
                   style={{
                     display:
                       isSingleImageItem && loadingStates[`item-${item.id}`]
