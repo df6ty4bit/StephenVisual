@@ -3,27 +3,27 @@ import wedding1_2 from "../assets/weddings/wedding1_2.jpg";
 import wedding1_3 from "../assets/weddings/wedding1_3.jpg";
 import wedding1_4 from "../assets/weddings/wedding1_4.jpg";
 
-import Singleportrait1 from "../assets/portraits/single/single1_1.jpg";
-import Singleportrait2 from "../assets/portraits/single/single1_2.jpg";
-import Singleportrait3 from "../assets/portraits/single/single1_3.jpg";
+import Singleportrait1_1 from "../assets/portraits/single/single1_1.jpg";
+import Singleportrait1_2 from "../assets/portraits/single/single1_2.jpg";
+import Singleportrait1_3 from "../assets/portraits/single/single1_3.jpg";
 
 import Familyportrait1 from "../assets/portraits/family/family1_1.jpg";
 
-import product1 from "../assets/products/product1_2.jpg";
-import product2 from "../assets/products/product1_2.jpg";
-import product3 from "../assets/products/product1_3.jpg";
+import product1_1 from "../assets/products/product1_2.jpg";
+import product1_2 from "../assets/products/product1_2.jpg";
+import product1_3 from "../assets/products/product1_3.jpg";
 
 import corporate1_1 from "../assets/corporateevents/corporate1_1.jpg";
 import corporate1_2 from "../assets/corporateevents/corporate1_2.jpg";
 import corporate1_3 from "../assets/corporateevents/corporate1_3.jpg";
 
-import editIndoor1 from "../assets/photoedits/indoor/indoor1_1.jpg";
-import editIndoor2 from "../assets/photoedits/indoor/indoor1_2.jpg";
-import editIndoor3 from "../assets/photoedits/indoor/indoor1_3.jpg";
+import editIndoor1_1 from "../assets/photoedits/indoor/indoor1_1.jpg";
+import editIndoor1_2 from "../assets/photoedits/indoor/indoor1_2.jpg";
+import editIndoor1_3 from "../assets/photoedits/indoor/indoor1_3.jpg";
 
-import editOutdoor1 from "../assets/photoedits/outdoor/outdoor1_1.jpg";
-import editOutdoor2 from "../assets/photoedits/outdoor/outdoor1_2.jpg";
-import editOutdoor3 from "../assets/photoedits/outdoor/outdoor1_3.jpg";
+import editOutdoor1_1 from "../assets/photoedits/outdoor/outdoor1_1.jpg";
+import editOutdoor1_2 from "../assets/photoedits/outdoor/outdoor1_2.jpg";
+import editOutdoor1_3 from "../assets/photoedits/outdoor/outdoor1_3.jpg";
 
 import children1_1 from "../assets/children/children1_1.jpg";
 import children1_2 from "../assets/children/children1_2.jpg";
@@ -41,7 +41,8 @@ const portfolioItems = [
         id: 2,
         title: "Single Portrait",
         category: "Portraits",
-        images: [Singleportrait1, Singleportrait2, Singleportrait3],
+        images: [Singleportrait1_1, Singleportrait1_2, Singleportrait1_3
+        ],
         description:
             "Professional studio session capturing a vibrant personality."
     },
@@ -57,7 +58,7 @@ const portfolioItems = [
         id: 4,
         title: "E-commerce Product Showcase",
         category: "Product Photography",
-        images: [product1, product1, product1],
+        images: [product1_1, product1_2, product1_3],
         description:
             "High-quality images designed to highlight product details for online stores."
     },
@@ -74,12 +75,12 @@ const portfolioItems = [
         title: "Advanced Photo Retouching",
         category: "Photo Editing",
         images: [
-            editIndoor1,
-            editIndoor2,
-            editIndoor3,
-            editOutdoor1,
-            editOutdoor2,
-            editOutdoor3
+            editIndoor1_1,
+            editIndoor1_2,
+            editIndoor1_3,
+            editOutdoor1_1,
+            editOutdoor1_2,
+            editOutdoor1_3
         ],
         description:
             "Bringing out the best in every image with professional retouching techniques."
@@ -96,7 +97,7 @@ const portfolioItems = [
         id: 8,
         title: "Family Photoshoot",
         category: "Portraits",
-        images: Familyportrait1,
+        image: Familyportrait1,
         description:
             "Creating timeless memories with heartfelt family portraits."
     },
