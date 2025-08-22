@@ -21,8 +21,8 @@ const About = () => {
     },
     {
       name: "De brightens Studio",
-      role: "Event Photographer & Editor",
-      bio: "Funke brings a vibrant energy to event coverage and a keen eye for storytelling in her editing. She ensures every client's story is told beautifully.",
+      role: "Master Mind",
+      bio: "De brightens Studio ran by Mr. godson Deekor is renowned for their innovative editing techniques and creative flair, transforming ordinary images into extraordinary works of art.",
       photo: editor2Photo,
     },
   ];
