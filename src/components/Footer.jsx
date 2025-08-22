@@ -18,7 +18,7 @@ const Footer = () => {
         </ul>
         <div className="social-icons">
           <a
-            href="https://facebook.com/stephenvisual"
+            href="https://www.facebook.com/share/1CkgBBbiMp/"
             target="_blank"
             rel="noopener noreferrer"
           >
