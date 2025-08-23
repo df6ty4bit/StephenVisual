@@ -18,7 +18,7 @@ const Footer = () => {
         </ul>
         <div className="social-icons">
           <a
-            href="https://www.facebook.com/share/1CkgBBbiMp/"
+            href="https://www.facebook.com/share/1Ljf5FWd1o/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -26,7 +26,7 @@ const Footer = () => {
           </a>{" "}
           |
           <a
-            href="https://web.facebook.com/"
+            href="https://www.facebook.com/share/1Ljf5FWd1o/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -34,7 +34,7 @@ const Footer = () => {
           </a>{" "}
           |
           <a
-            href="https://twitter.com/stephenvisual"
+            href="https://www.facebook.com/share/1Ljf5FWd1o/"
             target="_blank"
             rel="noopener noreferrer"
           >
