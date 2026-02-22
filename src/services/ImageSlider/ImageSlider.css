@@ -1,0 +1,135 @@
+/* Container sizing and centering */
+.slider-container {
+  max-width: 1400px;
+  height: 600px;
+  width: 100%;
+  margin: auto;
+  padding: 4rem 1rem;
+  position: relative;
+}
+
+/* The main background image wrapper */
+.slide-wrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  background-position: center;
+  background-size: cover;
+  transition: background-image 0.5s ease-in-out;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  touch-action: pan-y; /* Allows vertical scrolling but captures horizontal swipes */
+  user-select: none;   /* Prevents text highlighting during swipe */
+}
+
+/* Gradient Overlay for text contrast */
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+}
+
+/* Text and Content Styling */
+.slide-content {
+  position: relative;
+  z-index: 10;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  color: white;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.slide-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.slide-description {
+  font-size: 1.125rem;
+  color: #e5e7eb;
+  max-width: 28rem;
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* Navigation Arrows */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  color: white;
+  padding: 0.75rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+  opacity: 0; /* Hidden by default */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.slider-container:hover .nav-arrow {
+  opacity: 1; /* Show on hover */
+}
+
+.nav-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.left-arrow { left: 2.5rem; }
+.right-arrow { right: 2.5rem; }
+
+/* Bottom Pagination & Controls */
+.controls-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.dots-wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot {
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #d1d5db;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background-color: #111827;
+  width: 32px; /* Active "pill" shape */
+}
+
+.dot.inactive {
+  width: 8px;
+}
+
+/* Keyframes for text animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Button cleanup for the play/pause */
+.play-pause-btn {
+  border: none; 
+  background: none; 
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #4b5563;
+  transition: color 0.2s;
+}
+
+.play-pause-btn:hover {
+  color: #000;
+}
