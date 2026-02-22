@@ -4,52 +4,49 @@
 // import Footer from "./components/Footer";
 // import Home from "./components/Home";
 import "./index.css";
-import ImageSlider from "../src/services/ImageSlider/ImageSlider.tsx"
-import EmbeddedSlider from "../src/services/ImageSlider/miniSlider/EmbeddedSlider.jsx"
+// import ImageSlider from "../src/services/ImageSlider/ImageSlider.tsx"
+// import EmbeddedSlider from "../src/services/ImageSlider/miniSlider/EmbeddedSlider.jsx"
 
 function App() {
-  return(
-  <><ImageSlider/>
-  <EmbeddedSlider/></>
-  )
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // const [theme, setTheme] = useState(() => {
-  //   const savedTheme = localStorage.getItem("theme");
-  //   return savedTheme || "dark";
-  // });
 
-  // useEffect(() => {
-  //   document.body.className = theme;
-  //   localStorage.setItem("theme", theme);
-  // }, [theme]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme || "dark";
+  });
 
-  // const toggleMenu = () => {
-  //   setIsMenuOpen(!isMenuOpen);
-  // };
+  useEffect(() => {
+    document.body.className = theme;
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
-  // const closeMenu = () => {
-  //   setIsMenuOpen(false);
-  // };
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
-  // const toggleTheme = () => {
-  //   setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  // };
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
-  // return (
-  //   <Router>
-  //     <Navbar
-  //       isMenuOpen={isMenuOpen}
-  //       toggleMenu={toggleMenu}
-  //       closeMenu={closeMenu}
-  //       toggleTheme={toggleTheme}
-  //       currentTheme={theme}
-  //     />
-  //     <main>
-  //       <Home />
-  //     </main>
-  //     <Footer />
-  //   </Router>
-/*  );*/
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
+  return (
+    <Router>
+      <Navbar
+        isMenuOpen={isMenuOpen}
+        toggleMenu={toggleMenu}
+        closeMenu={closeMenu}
+        toggleTheme={toggleTheme}
+        currentTheme={theme}
+      />
+      <main>
+         <Home />
+       </main>
+       <Footer />
+    </Router>
+  );
 }
 
 export default App;
